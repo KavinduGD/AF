@@ -27,7 +27,7 @@ export default function ViewSingleComplaint() {
     const fetchComplaint = async () => {
       try {
         const response = await axios.get(
-          `http://3.26.255.165:5300/api/complaints/${id}`
+          `https://complaint-service.onrender.com/api/complaints/${id}`
         );
         setComplaint(response.data);
       } catch (error) {
@@ -45,7 +45,7 @@ export default function ViewSingleComplaint() {
   const handleStatusChange = async (complaintId, status) => {
     try {
       await axios.patch(
-        `http://3.26.255.165:5300/api/complaints/${complaintId}`,
+        `https://complaint-service.onrender.com/api/complaints/${complaintId}`,
         {
           status,
         }
@@ -69,7 +69,7 @@ export default function ViewSingleComplaint() {
   const replySubmitHandler = async () => {
     try {
       const res = await axios.patch(
-        `http://3.26.255.165:5300/api/complaints/reply/${complaint._id}`,
+        `https://complaint-service.onrender.com/api/complaints/reply/${complaint._id}`,
         { reply: complaint.reply }
       );
       if (res.data.status === "success") {

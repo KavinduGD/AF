@@ -12,9 +12,12 @@ const ComplaintTable = () => {
   //http://3.26.255.165:5300/api/complaints/nic/200026401823
   const handleStatusChange = (complaintId, status) => {
     axios
-      .patch(`http://3.26.255.165:5300/api/complaints/${complaintId}`, {
-        status,
-      })
+      .patch(
+        `https://complaint-service.onrender.com/api/complaints/${complaintId}`,
+        {
+          status,
+        }
+      )
       .then((response) => {
         // update the status of the complaint in the state
         const updatedComplaints = complaints.map((complaint) =>
@@ -29,7 +32,7 @@ const ComplaintTable = () => {
 
   useEffect(() => {
     axios
-      .get("http://3.26.255.165:5300/api/complaints")
+      .get("https://complaint-service.onrender.com/api/complaints")
       .then((response) => {
         setComplaints(response.data);
       })
