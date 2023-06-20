@@ -59,5 +59,8 @@
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
     "@types/bootstrap": "^5.2.6"
+  },
+  "engines": {
+    "node": ">=14.20.1"
   }
 }
