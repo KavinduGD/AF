@@ -4,7 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import CustomerRoutes from "./routes/CustomerRoutes.js";
-import cors from "cors";
+
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/", CustomerRoutes);
-app.use(cors());
+
 mongoose
   .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
