@@ -1,7 +1,7 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import html2pdf from 'html2pdf.js';
-import axios from 'axios';
+import React from "react";
+import { useEffect, useState } from "react";
+import html2pdf from "html2pdf.js";
+import axios from "axios";
 
 function Vehibutton({ download, setRefresh }) {
   const [vehicle, setVehicle] = useState({});
@@ -22,15 +22,18 @@ function Vehibutton({ download, setRefresh }) {
 
   const handleDownload = () => {
     const content = generatePDFContent();
-    const options = { filename: 'vehicle_details.pdf' };
+    const options = { filename: "vehicle_details.pdf" };
 
     html2pdf().set(options).from(content).save();
   };
 
   const handleMissing = async () => {
-    await axios.patch(`http://3.26.196.154:5200/api/vehicles/${vehicle.id}`, {
-      status: 'stolen',
-    });
+    await axios.patch(
+      `https://vehicle-service-b32q.onrender.com/api/vehicles/${vehicle.id}`,
+      {
+        status: "stolen",
+      }
+    );
     setRefresh((current) => !current);
   };
 
@@ -58,15 +61,15 @@ function Vehibutton({ download, setRefresh }) {
   };
 
   return (
-    <div className='absolute ml-[67rem] flex flex-col  w-[14rem] h-[31rem] mt-[-31rem] '>
+    <div className="absolute ml-[67rem] flex flex-col  w-[14rem] h-[31rem] mt-[-31rem] ">
       <button
-        className='w-[12rem] mt-10 rounded-full h-[4rem] place-self-center border-2 bg-slate-200 hover:bg-[#405C5C] hover:text-white border-[#405C5C] text-[#405C5C] text-2xl font-bruno drop-shadow-xl'
+        className="w-[12rem] mt-10 rounded-full h-[4rem] place-self-center border-2 bg-slate-200 hover:bg-[#405C5C] hover:text-white border-[#405C5C] text-[#405C5C] text-2xl font-bruno drop-shadow-xl"
         onClick={handleDownload}
       >
         Download
       </button>
       <button
-        className='w-[12rem] mt-10 rounded-full h-[4rem] place-self-center border-2 bg-slate-200 hover:bg-[#8B0000] border-[#8B0000] text-[#8B0000] hover:text-white text-2xl font-bruno drop-shadow-xl'
+        className="w-[12rem] mt-10 rounded-full h-[4rem] place-self-center border-2 bg-slate-200 hover:bg-[#8B0000] border-[#8B0000] text-[#8B0000] hover:text-white text-2xl font-bruno drop-shadow-xl"
         onClick={handleMissing}
       >
         Missing!
