@@ -113,7 +113,7 @@ const ComplaintTable = () => {
             color: "#2e7c67",
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "#a4a9fc",
+            backgroundColor: "#a6a6a6",
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -121,7 +121,7 @@ const ComplaintTable = () => {
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: "#a4a9fc",
+            backgroundColor: "#a6a6a6",
           },
           "& .MuiCheckbox-root": {
             color: `${"#1e5245"} !important`,

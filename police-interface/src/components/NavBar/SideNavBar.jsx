@@ -49,7 +49,7 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
           { text: "Analytics", route: "/analytics" },
           { text: "Pay Fines", route: "/payfine" },
           { text: "Add Fine", route: "/addfine" },
-          { text: "Find Vehicle", route: "/vehicles" },
+
           { text: "Vehicles", route: "/vehicles" },
           { text: "Recognitions", route: "/recognitions" },
           { text: "Reports", route: "/reports" },
