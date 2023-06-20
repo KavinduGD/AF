@@ -27,7 +27,6 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
     Analytics: <AnalyticsIcon />,
     "Pay Fines": <PaymentIcon />,
     "Add Fine": <AddCardIcon />,
-    "Find Vehicle": <FindInPageIcon />,
     Vehicles: <DirectionsCarIcon />,
     Recognitions: <CameraAltIcon />,
     Reports: <DescriptionIcon />,
@@ -39,9 +38,10 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-      role='presentation'
+      role="presentation"
       onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}>
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
       <List>
         {[
           { text: "Dashboard", route: "/dashboard" },
@@ -61,7 +61,8 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
             <ListItemButton
               component={Link}
               to={item.route}
-              sx={{ "&:hover": { backgroundColor: "#c2c2c2" } }}>
+              sx={{ "&:hover": { backgroundColor: "#c2c2c2" } }}
+            >
               <ListItemIcon>{iconMap[item.text]}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -75,7 +76,11 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
     <div>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
             {list(anchor)}
           </Drawer>
         </React.Fragment>
