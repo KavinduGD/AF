@@ -3,7 +3,6 @@ import axios from "axios";
 import "./Register.css";
 import { Link } from "react-router-dom";
 
-
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     policeId: "",
@@ -28,14 +27,17 @@ const RegistrationForm = () => {
 
     try {
       const response = await axios.post(
-        "http://13.239.53.12:1670/register",
+        "https://police-auth-service.onrender.com/register",
         formData
-        
       );
       console.log(response.data);
-      window.location = "/login"
+      window.location = "/login";
     } catch (error) {
-      if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
         setError(error.response.data.message);
       }
     }
@@ -47,7 +49,7 @@ const RegistrationForm = () => {
         <div className="left">
           <div className="form_container">
             <h1>Registration Form</h1>
-            
+
             <input
               type="text"
               id="policeId"
@@ -58,7 +60,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-            
             <input
               type="text"
               id="nic"
@@ -69,7 +70,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-            
             <input
               type="text"
               id="firstname"
@@ -80,7 +80,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-           
             <input
               type="text"
               id="middlename"
@@ -91,7 +90,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-            
             <input
               type="text"
               id="lastname"
@@ -102,7 +100,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-            
             <select
               id="rank"
               name="rank"
@@ -157,7 +154,6 @@ const RegistrationForm = () => {
               </option>
             </select>
 
-            
             <input
               type="email"
               id="email"
@@ -168,7 +164,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-            
             <input
               type="password"
               id="password"
@@ -179,7 +174,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-           
             <input
               type="text"
               id="phoneNo"
@@ -190,7 +184,6 @@ const RegistrationForm = () => {
               onChange={handleChange}
             />
 
-           
             <select
               id="station"
               name="station"
@@ -226,7 +219,6 @@ const RegistrationForm = () => {
               <option value="Nuwara Eliya">Nuwara Eliya</option>
             </select>
 
-            
             <input
               type="text"
               id="address"
@@ -236,12 +228,11 @@ const RegistrationForm = () => {
               value={formData.address}
               onChange={handleChange}
             />
- {error && <div className="error_msg">{error}</div>}
+            {error && <div className="error_msg">{error}</div>}
 
             <button type="submit" className="green_btn">
               Register
             </button>
-         
           </div>
         </div>
         <div className="right">
