@@ -37,7 +37,7 @@ const VehicleDetails = () => {
   });
 
   useEffect(() => {
-    fetch(`http://3.26.196.154:5200/api/vehicles/search_id/${id}`)
+    fetch(`https://vehicle-service-b32q.onrender.com/api/vehicles/search_id/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setInitialValues(data);
@@ -54,7 +54,7 @@ const VehicleDetails = () => {
   const handleFormSubmit = (values) => {
     console.log(values);
     axios
-      .patch(`http://3.26.196.154:5200/api/vehicles/${id}`, values)
+      .patch(`https://vehicle-service-b32q.onrender.com/api/vehicles/${id}`, values)
       .then((response) => {
         console.log("Form Editeds successfully!");
         alert("Vehicle Updated Successfully");
@@ -67,7 +67,7 @@ const VehicleDetails = () => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://3.26.196.154:5200/api/vehicles/${id}`)
+      .delete(`https://vehicle-service-b32q.onrender.com/api/vehicles/${id}`)
       .then((response) => {
         console.log("deleted");
         alert("Vehicle Deleted Successfully");

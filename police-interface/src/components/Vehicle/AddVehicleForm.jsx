@@ -30,7 +30,10 @@ const Form = () => {
     console.log("res");
     axios
       //http://ec2-52-62-234-207.ap-southeast-2.compute.amazonaws.com:5200/api/vehicles
-      .post("http://3.26.196.154:5200/api/vehicles/add", values)
+      .post(
+        "https://vehicle-service-b32q.onrender.com/api/vehicles/add",
+        values
+      )
       .then((response) => {
         console.log("res");
         console.log("Form submitted successfully!");
@@ -56,11 +59,15 @@ const Form = () => {
       formData.append("file", selectedFile);
 
       axios
-        .post("http://3.26.196.154:5200/api/vehicles", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
+        .post(
+          "https://vehicle-service-b32q.onrender.com/api/vehicles",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
         .then((response) => {
           console.log("File uploaded successfully!");
           console.log(response);

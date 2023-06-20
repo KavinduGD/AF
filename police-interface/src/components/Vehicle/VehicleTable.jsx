@@ -17,7 +17,7 @@ const VehicleTable = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       const { data } = await axios.get(
-        "http://3.26.196.154:5200/api/vehicles/"
+        "https://vehicle-service-b32q.onrender.com/api/vehicles/"
       );
 
       setVehicles(data);
